@@ -1,0 +1,27 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst nios_ADC.ledr -pg 1 -lvl 3 -y 590
+preplace inst nios_ADC.jtag_uart_0 -pg 1 -lvl 3 -y 290
+preplace inst nios_ADC.nios2_gen2_0 -pg 1 -lvl 2 -y 280
+preplace inst nios_ADC.onchip_memory2_0 -pg 1 -lvl 3 -y 130
+preplace inst nios_ADC.nios2_gen2_0.reset_bridge -pg 1
+preplace inst nios_ADC -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst nios_ADC.adc_0 -pg 1 -lvl 3 -y 30
+preplace inst nios_ADC.sysid_qsys_0 -pg 1 -lvl 3 -y 210
+preplace inst nios_ADC.signal0 -pg 1 -lvl 3 -y 490
+preplace inst nios_ADC.clk_0 -pg 1 -lvl 1 -y 430
+preplace inst nios_ADC.nios2_gen2_0.clock_bridge -pg 1
+preplace inst nios_ADC.key -pg 1 -lvl 3 -y 390
+preplace inst nios_ADC.nios2_gen2_0.cpu -pg 1
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)nios_ADC.reset) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_ADC</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 730
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)nios_ADC.signal_out,(SLAVE)signal0.external_connection) 1 0 3 NJ 520 NJ 520 NJ
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)ledr.external_connection,(SLAVE)nios_ADC.ledr) 1 0 3 NJ 620 NJ 620 NJ
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)nios_ADC.adc0,(SLAVE)adc_0.external_interface) 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)nios_ADC.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>nios_ADC</net_container>(MASTER)clk_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)signal0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)adc_0.clk,(SLAVE)ledr.clk,(SLAVE)key.clk) 1 1 2 290 540 750
+preplace netloc INTERCONNECT<net_container>nios_ADC</net_container>(SLAVE)signal0.s1,(SLAVE)ledr.s1,(MASTER)nios2_gen2_0.data_master,(SLAVE)adc_0.adc_slave,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)key.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)onchip_memory2_0.s1,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)sysid_qsys_0.control_slave) 1 1 2 330 660 710
+preplace netloc FAN_OUT<net_container>nios_ADC</net_container>(SLAVE)sysid_qsys_0.reset,(SLAVE)onchip_memory2_0.reset1,(MASTER)clk_0.clk_reset,(SLAVE)jtag_uart_0.reset,(SLAVE)signal0.reset,(SLAVE)key.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)adc_0.reset,(SLAVE)ledr.reset) 1 1 2 310 640 770
+preplace netloc EXPORT<net_container>nios_ADC</net_container>(SLAVE)key.external_connection,(SLAVE)nios_ADC.key) 1 0 3 NJ 420 NJ 420 NJ
+levelinfo -pg 1 0 80 1000
+levelinfo -hier nios_ADC 90 120 470 840 990
